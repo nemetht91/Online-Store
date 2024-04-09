@@ -141,8 +141,10 @@
     position: fixed;
     top: 70px;
     width: 100%;
-    margin: 20px;
+    padding: 20px 0px;
     font-size: 1.2rem;
+    z-index: 10;
+    background-color: white;
   }
 
   .menuItem{
@@ -154,6 +156,8 @@
     top: 30px;
     font-size: 1rem;
     width: max-content;
+    background-color: white;
+    padding: 10px;
   }
 
   .subMenu p:hover,
@@ -162,5 +166,5 @@
     color: red;
   }
 
-  
+
 
