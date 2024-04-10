@@ -1,0 +1,39 @@
+
+.options{
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 150px;
+
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    padding-left:  auto;
+}
+
+.divider{
+    width: 1px;
+    background-color: black;
+    margin: 2px;
+}
+
+
+.option i{
+    color: red;
+    font-size: 35px;
+}
+
+.option h2{
+    font-size: 20px;
+}
+
+.option p{
+    font-size: 14px;
+}
+
+.option a{
+    color: black;
+    border-bottom: 1px solid black;
+}

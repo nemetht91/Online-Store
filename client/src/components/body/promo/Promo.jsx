@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import PromoImg from "../PromoImg";
+import PromoImg from "./PromoImg";
 import "./promo.css"
 
 function Promo(props){

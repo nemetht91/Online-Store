@@ -1,5 +1,6 @@
 import React from "react";
 import Promo from "./promo/Promo";
+import Options from "./options/Options";
 
 function HomeContent(){
     const add = {
@@ -16,6 +17,7 @@ function HomeContent(){
     return <div className="home-content">
         <div className="main-promo">
             <Promo content={add}/>
+            <Options/>
         </div>
     </div>
 }
