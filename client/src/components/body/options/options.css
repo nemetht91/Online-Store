@@ -16,7 +16,8 @@
 .divider{
     width: 1px;
     background-color: black;
-    margin: 2px;
+    margin: -2px;
+
 }
 
 
