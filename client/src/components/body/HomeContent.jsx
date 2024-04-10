@@ -1,6 +1,7 @@
 import React from "react";
 import Promo from "./promo/Promo";
 import Options from "./options/Options";
+import Product from "./product/product";
 
 function HomeContent(){
     const add = {
@@ -14,10 +15,18 @@ function HomeContent(){
         sub: "Save Big on Your Favorite Brands"
     }
 
+    const product ={
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_vHH_-mm2zQ-BUu-jo1vQsuLvGNKa8YwETQ&s",
+        name: "Hand Cream",
+        price: 2.99,
+        discount: 0.2
+    }
+
     return <div className="home-content">
         <div className="main-promo">
             <Promo content={add}/>
             <Options/>
+            <Product detail={product}/>
         </div>
     </div>
 }
