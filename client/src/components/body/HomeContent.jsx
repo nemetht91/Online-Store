@@ -1,5 +1,5 @@
 import React from "react";
-import Add from "./Add";
+import Promo from "./promo/Promo";
 
 function HomeContent(){
     const add = {
@@ -14,8 +14,8 @@ function HomeContent(){
     }
 
     return <div className="home-content">
-        <div className="main-add">
-            <Add content={add}/>
+        <div className="main-promo">
+            <Promo content={add}/>
         </div>
     </div>
 }
