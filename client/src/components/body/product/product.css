@@ -1,8 +1,27 @@
 .product{
-    padding: 20px;
+    padding: 0px;
     margin: 10px;
     border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
     width: fit-content;
+}
+
+.product img{
+    height: 260px;
+    width: 260px;
+    object-fit: contain;
+}
+
+.product p{
+    margin: 0px 7.5px;
+}
+
+.product button.cart{
+    color: white;
+    background-color: black;
+    margin: 10px 7.5px;
+    border-radius: 20px;
 }
 
 .price{
@@ -11,8 +30,43 @@
     font-weight: 600;
     display: flex;
     gap: 5px;
+    margin: 0px 7.5px;
+}
+
+.price p{
+    margin: 0px;
 }
 
 .old-price{
     text-decoration: line-through;
+}
+
+.quantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px black;
+    padding: 3px 0px;
+    color: gray;
+    margin: 0px 7.5px;
+
+    margin-top: 20px;
+
+}
+
+.quantity button{
+    font-size: 24px;
+    margin: 0px 10px;
+    padding: 0px;
+    border: none;
+    color: gray;
+
+}
+
+.quantity button:focus{
+    outline: revert;
+}
+
+.quantity .hidden{
+    visibility:hidden;
 }

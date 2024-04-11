@@ -34,7 +34,9 @@
     font-size: 14px;
 }
 
-.option a{
+.option a,
+.option a:hover{
     color: black;
     border-bottom: 1px solid black;
 }
+
