@@ -3,6 +3,7 @@ import Promo from "./promo/Promo";
 import Options from "./options/Options";
 import Product from "./product/product";
 import Slider from "./slider";
+import RedButton from "./Button";
 
 function HomeContent(){
     const add = {
@@ -66,8 +67,11 @@ function HomeContent(){
             <Promo content={add}/>
             <Options/>
             <div className="deals">
-                <h2>Best Deals</h2>
-                <Slider products={products}/>
+                <div>
+                    <h2>Best Deals</h2>
+                    <Slider products={products}/>
+                </div>
+                <RedButton text="Shop Best Deals"/>
             </div>
             
         </div>
