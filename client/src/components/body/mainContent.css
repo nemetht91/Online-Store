@@ -13,3 +13,40 @@
     width: 100vw;
 }
 
+.home-content .deals{
+    padding: 60px 0px;
+    max-width: 1678px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.home-content .deals h2{
+    margin-left: 50px;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.custom-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+swiper-container{
+    width: 95%;
+}
+
+
+
+.custom-prev-button i,
+.custom-next-button i{
+    font-size: 24px;
+
+}
+
+.custom-prev-button:hover,
+.custom-next-button:hover{
+    cursor: pointer;
+}
+

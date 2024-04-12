@@ -5,6 +5,9 @@ import './App.css'
 import Customers from './components/customers'
 import Navbar from './components/navigation/navbar'
 import MainContent from './components/body/Maincontent'
+import { register } from 'swiper/element/bundle';
+
+register();
 
 function App() {
   const [count, setCount] = useState(0)

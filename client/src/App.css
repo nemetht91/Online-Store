@@ -5,7 +5,10 @@
   --dark-color:#000;
   --light-color:#f4f4f4e3;
   --text-color: black;
-  
+  --swiper-navigation-color: black;
+  --swiper-theme-color: black;
+  --swiper-navigation-sides-offset: 0px;
+  --swiper-navigation-size: 20px;
 }
 
 /* Basic styling */
@@ -24,4 +27,5 @@ body{
   background-color: var(--background-color);
 
 }
+
 
