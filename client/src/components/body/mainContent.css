@@ -27,11 +27,17 @@ button.red-button:hover{
     width: 100vw;
 }
 
+.content{
+    max-width: 1800px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
 .home-content .deals{
-    padding: 60px 100px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-top: 40px;
 }
 
 .home-content .deals h2{
@@ -67,4 +73,15 @@ swiper-container{
 .deals button.red-button{
     margin-right: auto;
     margin-left: auto;
+}
+
+.promos{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 480px;
+    gap: 50px;
+    width: 95%;
+    margin-left: 50px;
+    padding-right: 50px;
 }
