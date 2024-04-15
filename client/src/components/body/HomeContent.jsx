@@ -31,6 +31,10 @@ function HomeContent(){
                 </div>
                 <h2 className="title">Most Popular Categories</h2>
                 <Categories categories={categories}/>
+                <div>
+                    <h2 className="title">Most Popular</h2>
+                    <Slider products={products}/>
+                </div>
             </section>
             
         </div>
