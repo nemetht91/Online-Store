@@ -7,6 +7,7 @@ import RedButton from "./Button";
 import promos from "../../../data/promos";
 import products from "../../../data/products";
 import categories from "../../../data/categories";
+import Categories from "./Category/categories";
 
 function HomeContent(){
     
@@ -19,7 +20,7 @@ function HomeContent(){
                 <Options/>
                 <div className="deals">
                     <div>
-                        <h2>Best Deals</h2>
+                        <h2 className="title">Best Deals</h2>
                         <Slider products={products}/>
                     </div>
                     <RedButton text="Shop Best Deals"/>
@@ -28,6 +29,8 @@ function HomeContent(){
                     <Promo content={promos[1]}/>
                     <Promo content={promos[2]}/>
                 </div>
+                <h2 className="title">Most Popular Categories</h2>
+                <Categories categories={categories}/>
             </section>
             
         </div>

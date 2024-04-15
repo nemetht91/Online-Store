@@ -1,13 +1,12 @@
 import React from "react";
+import "./category.css"
 
 
 function Category(props){
 
     return <div className="category">
         <div className="background"></div>
-        <a href={props.category.url}>
-            <img src={props.category.img} alt={props.category.name} />
-        </a>
+        <img src={props.category.img} alt={props.category.name} />
         <a href={props.category.url}>
             <h3>{props.category.name}</h3>
         </a>

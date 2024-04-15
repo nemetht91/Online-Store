@@ -5,7 +5,7 @@ const categories = [
     {name: "Dairy & Eggs", img:"../src/assets/img/dairy.png", url:""},
     {name: "Meat & Poultry", img:"../src/assets/img/meat.png", url:""},
     {name: "Soft Drinks", img:"../src/assets/img/softdrink.png", url:""},
-    {name: "Cleaning Supplies", img:"../src/assets/img/cleaining.png", url:""},
+    {name: "Cleaning Supplies", img:"../src/assets/img/cleaning.png", url:""},
     {name: "Cereal & Snacks", img:"../src/assets/img/cereal.png", url:""},
 ];
 
