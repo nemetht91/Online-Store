@@ -5,6 +5,7 @@ footer{
 
 .banner{
     height: 500px;
+    background-color: black;
 }
 
 .banner img{
@@ -12,6 +13,7 @@ footer{
     height: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 60%;
 }
 
 .footer-nav{
@@ -31,6 +33,10 @@ footer{
     align-items: flex-start;
     padding: 0px;
     font-size: 1rem;
+}
+
+.help h3{
+    padding: 10px 0px;
 }
 
 .footer-nav h2{
