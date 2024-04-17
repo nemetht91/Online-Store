@@ -5,6 +5,7 @@ import "./mainContent.css"
 function MainContent(){
     return <div className="main-content">
         <HomeContent/>
+
     </div>
 }
 

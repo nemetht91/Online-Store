@@ -1,0 +1,100 @@
+footer{
+    background-color: red;
+    color: white;
+}
+
+.banner{
+    height: 500px;
+}
+
+.banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.footer-nav{
+    padding: 75px 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: white solid 1px;
+}
+
+.footer-nav .menu{
+    position: static;
+    background-color: transparent;
+    color: white;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-start;
+    padding: 0px;
+    font-size: 1rem;
+}
+
+.footer-nav h2{
+    margin-bottom: 30px;
+}
+
+.footer-nav .menuItem p{
+    width: 200px;
+}
+
+.footer-nav .subMenu{
+    position: absolute;
+    font-size: 1rem;
+    left: 150px;
+    top: -20px;
+    width: max-content;
+    background-color: black;
+    padding: 10px 0px;
+    z-index: 5;
+  }
+
+  .footer-nav .subMenu p{
+    width: fit-content;
+    padding: 0px 10px;
+  }
+
+  .footer-nav .subMenu p:hover,
+  .footer-nav .clickable:hover{
+    cursor: pointer;
+    color: white;
+  }
+
+  .links{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  footer a{
+    color: white;
+    font-size: 1rem;
+  }
+
+  footer a:hover{
+    color: white;
+  }
+
+  footer .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+  }
+
+  footer .info .links{
+    flex-direction: row;
+    width: fit-content;
+    gap: 40px;
+    padding-bottom: 20px;
+  }
+
+  footer .info .links a{
+    font-size: 0.9rem;
+    border-bottom: white solid 1px;
+    padding-bottom: 0px;
+  }

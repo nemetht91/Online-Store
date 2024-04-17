@@ -13,16 +13,15 @@ button.red-button:hover{
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+
 .main-content{
-    margin-top: 940px;
+    margin-bottom: 75px;
 }
 
+
 .main-promo{
-    position: absolute;
-    top: 140px;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    margin-top: 140px;
+ 
     height: 600px;
     width: 100vw;
 }
@@ -31,6 +30,7 @@ button.red-button:hover{
     max-width: 1800px;
     margin: 0 auto;
     overflow: auto;
+
 }
 
 .home-content .deals{
@@ -70,7 +70,7 @@ swiper-container{
     cursor: pointer;
 }
 
-.deals button.red-button{
+ .red-button{
     margin-right: auto;
     margin-left: auto;
 }

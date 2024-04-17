@@ -12,13 +12,13 @@ import Categories from "./Category/categories";
 function HomeContent(){
     
 
-    
     return <div className="home-content">
         <div className="main-promo">
             <Promo content={promos[0]}/>
-            <section className="content">
+        </div>
+        <section className="content">
                 <Options/>
-                <div className="deals">
+                <div className="deals"> 
                     <div>
                         <h2 className="title">Best Deals</h2>
                         <Slider products={products}/>
@@ -31,13 +31,15 @@ function HomeContent(){
                 </div>
                 <h2 className="title">Most Popular Categories</h2>
                 <Categories categories={categories}/>
-                <div>
-                    <h2 className="title">Most Popular</h2>
-                    <Slider products={products}/>
+                <div className="deals">
+                    <div>
+                        <h2 className="title">Most Popular</h2>
+                        <Slider products={products}/>
+                    </div>
+                    <RedButton text="Shop Most Popular"/>
                 </div>
+
             </section>
-            
-        </div>
     </div>
 }
 
