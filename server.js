@@ -1,6 +1,7 @@
 import express from "express"
 import bodyParser from "body-parser";
 import cors from "cors"
+import products from "./client/data/products.js";
 
 const app = express();
 
@@ -16,6 +17,17 @@ app.get('/api/customers', (req, res) => {
         {id: 3, firstName: 'Mary', lastName: 'Swanson'}
     ];
     res.json(customers);
+});
+
+app.get('/api/trending', (req, res) => {
+    const trending = [];
+    for(var i =0; i <= products.length; i++){
+        if(i >= 5){
+            break;
+        }
+        trending.push(products[i]);
+    }
+    res.json(trending);
 })
 
 
