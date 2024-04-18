@@ -15,7 +15,7 @@ function TrendingItems(){
             setTrendingItems(data);
         }
         fetchTrendingItems();
-    })
+    }, []);
 
     return <div className='trending-items'>
         <h2>Trending Products</h2>

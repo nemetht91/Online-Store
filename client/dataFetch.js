@@ -20,6 +20,10 @@ class DataFetcher{
         return await this.fetchData("trending");
     }
 
+    async getAllProducts(){
+        return await this.fetchData('products');
+    }
+
 }
 
 const dataFetcher = new DataFetcher();

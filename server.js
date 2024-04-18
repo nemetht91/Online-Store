@@ -30,6 +30,10 @@ app.get('/api/trending', (req, res) => {
     res.json(trending);
 })
 
+app.get('/api/products', (req, res) => {
+    res.json(products);
+})
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
