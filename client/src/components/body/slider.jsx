@@ -5,7 +5,7 @@ import Product from "./product/product";
 function Slider(props){
 
     return <div className="custom-slide">
-        <div className="custom-prev-button"><i class="fa-solid fa-chevron-left"></i></div>
+        <div className="custom-prev-button"><i className="fa-solid fa-chevron-left"></i></div>
         <swiper-container 
             slides-per-view="5"
             space-between="10"   
@@ -14,13 +14,13 @@ function Slider(props){
             loop={true} 
             centeredSlides= {true}
             >
-                {props.products.map((product) => {
-                    return <swiper-slide><Product detail={product}/></swiper-slide>;
+                {props.products.map((product, index) => {
+                    return <swiper-slide key={index}><Product detail={product}/></swiper-slide>;
                 })}
 
             </swiper-container>
             
-            <div className="custom-next-button"><i class="fa-solid fa-chevron-right"></i></div>
+            <div className="custom-next-button"><i className="fa-solid fa-chevron-right"></i></div>
     </div>
     
 

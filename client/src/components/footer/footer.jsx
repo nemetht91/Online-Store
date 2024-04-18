@@ -28,7 +28,7 @@ function Footer(){
                 <h2>Categories</h2>
                 <div className="links">
                     {categories.map((category, index) => {
-                        return (<a href={category.url}>{category.name}</a>)
+                        return (<a key={index} href={category.url}>{category.name}</a>)
                     })}
                 </div>
             </div>

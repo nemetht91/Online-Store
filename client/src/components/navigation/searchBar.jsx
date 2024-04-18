@@ -19,8 +19,8 @@ function SearchBar(){
         <form action="/search" method="POST">
             <div className="form-group fg--search">
                 <div>
-                    <input onFocus={handleOnFocus} onBlur={handleOnBlur} type="text" class="input" placeholder="Search a product e.g. milk" name="movieTitle"/>
-                    <button className={isActive && "button-active"} type="submit"><i class="fa fa-search"></i></button>
+                    <input onFocus={handleOnFocus} onBlur={handleOnBlur} type="text" className="input" placeholder="Search a product e.g. milk" name="movieTitle"/>
+                    <button className={isActive? "button-active" : ""} type="submit"><i className="fa fa-search"></i></button>
                 </div>
                 {isActive && <TrendingItems/>}
             </div>

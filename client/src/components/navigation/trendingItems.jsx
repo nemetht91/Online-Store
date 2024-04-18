@@ -4,18 +4,27 @@ import './navbar.css'
 import TrendingItem from './trendingItem';
 
 function TrendingItems(){
-    const testData = [
-        {id:1, imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_vHH_-mm2zQ-BUu-jo1vQsuLvGNKa8YwETQ&s", productName: "HandCream", desciption: "I'm a product detail. I'm a great place to add more" },
-        {id:2, imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_vHH_-mm2zQ-BUu-jo1vQsuLvGNKa8YwETQ&s", productName: "HandCream", desciption: "I'm a product detail. I'm a great place to add more" },
-        {id:3, imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_vHH_-mm2zQ-BUu-jo1vQsuLvGNKa8YwETQ&s", productName: "HandCream", desciption: "I'm a product detail. I'm a great place to add more" },
-        {id:4, imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_vHH_-mm2zQ-BUu-jo1vQsuLvGNKa8YwETQ&s", productName: "HandCream", desciption: "I'm a product detail. I'm a great place to add more" }
+  
+    const [trendingItems, setTrendingItems] = useState([]);
 
-    ]
+    useEffect(() => {
+        const fetchTrendingItems = async () => {
+            console.log(process.env.REACT_APP_SERVER_URL);
+            const response = await fetch("api/trending");
+            console.log(response);
+
+            const data = await response.json();
+
+            setTrendingItems(data);
+            console.log(trendingItems);
+        }
+        fetchTrendingItems();
+    })
 
     return <div className='trending-items'>
         <h2>Trending Products</h2>
         <div>
-            {testData.map((data) => {
+            {trendingItems.map((data) => {
                 return <TrendingItem 
                 key={data.id}
                 imgUrl={data.imgUrl}

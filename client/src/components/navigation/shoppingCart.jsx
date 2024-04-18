@@ -4,7 +4,7 @@ function ShoppingCart(){
     const [items, setItems] = useState([]);
 
     return <div className='shoppingCart'>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i className="fa-solid fa-cart-shopping"></i>
         <div>
             <p>{items.length}</p>
         </div>

@@ -22,12 +22,11 @@ function MenuItem(props){
     }
 
     function IsSubMenu(){
-        console.log(props.menu.sub.length  > 0);
         return props.menu.sub.length > 0;
     }
 
     return <div className="menuItem">
-        <p className={!IsSubMenu() && "clickable"} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{props.menu.main}</p>
+        <p className={!IsSubMenu()? "clickable":""} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{props.menu.main}</p>
         { (isActive || isSubActive) && <SubMenu sub={props.menu.sub} SubActive={SubActive} SubDeactive={SubDeactive}/>}
     </div>
 }
