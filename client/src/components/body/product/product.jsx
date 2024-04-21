@@ -2,10 +2,13 @@ import React, {useState} from "react";
 import Price from "./price";
 import "./product.css"
 import Quantity from "./quantity";
+import { useContext } from "react";
+import { CartContext } from "../../../CartContext";
 
 function Product(props){
 
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const cart = useContext(CartContext);
 
     function increaseQuantity(){
         setQuantity(quantity + 1);
@@ -24,7 +27,7 @@ function Product(props){
         <Price detail={props.detail}/>
         <Quantity quantity={quantity} increase={increaseQuantity} decrease={deascreaseQuantity} />
         <button onClick={() => {
-            props.addCart(props.detail, quantity);
+            cart.addOneToCart({id: props.detail.id, quantity: quantity});
         }} className="cart">Add to Cart</button>
     </div>
 }

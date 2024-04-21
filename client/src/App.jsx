@@ -7,6 +7,7 @@ import Navbar from './components/navigation/navbar'
 import MainContent from './components/body/Maincontent'
 import { register } from 'swiper/element/bundle';
 import Footer from './components/footer/footer'
+import CartProvider from './CartContext'
 
 register();
 
@@ -15,9 +16,11 @@ function App() {
 
   return (
     <div className='app'>
+      <CartProvider>
         <Navbar/>
         <MainContent/>
         <Footer />
+      </CartProvider>
     </div>
         
   )
