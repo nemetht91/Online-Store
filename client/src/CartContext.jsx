@@ -18,7 +18,7 @@ export const CartContext = createContext({
 export function CartProvider({children}){
 
     const [cartProduct, setCartProduct] = useState([]);
-    const [preview, setPreview] = useState([false]);
+    const [preview, setPreview] = useState(false);
 
     // [{item: {}, quantity: 2}]
 
@@ -36,9 +36,8 @@ export function CartProvider({children}){
 
     function addOneToCart(newItem){
         
-        const {item, newQuantity} = newItem;
 
-        const quantity = getProductQuantity(item.id);
+        const quantity = getProductQuantity(newItem.item.id);
         if (quantity == 0){
             setCartProduct((prevValue) => {
                 return [...prevValue, newItem];
@@ -50,7 +49,7 @@ export function CartProvider({children}){
         setCartProduct(
             cartProduct.map(
                 product => 
-                product.item.id === item.id
+                product.item.id === newItem.item.id
                 ? {...product, quantity: product.quantity + newItem.quantity} : product
             )
         )
@@ -90,7 +89,12 @@ export function CartProvider({children}){
     function getTotalCost(){
         let totalCost = 0;
 
-        return totalCost;
+        cartProduct.map((product) => {
+            const {item, quantity} = product
+            totalCost += (item.price - item.price * item.discount) * quantity
+        })
+
+        return Math.round(totalCost*100)/100;
     }
 
     function getTotalQuantity(){

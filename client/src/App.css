@@ -28,6 +28,13 @@ body{
 
 }
 
+.noAnimation *{
+  -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -o-animation:  none !important;
+        animation: none !important;
+}
+
 
 
 

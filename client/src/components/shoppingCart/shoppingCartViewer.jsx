@@ -1,5 +1,5 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useEffect } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../CartContext";
 import CartItem from "./cartItem";
 import RedButton from "../body/Button";
@@ -7,6 +7,7 @@ import "./shoppingCart.css"
 
 function ShoppingCartViewer(){
     const cart = useContext(CartContext);
+
 
     function isEmpty(){
         return cart.items.length <= 0;
@@ -33,20 +34,24 @@ function ShoppingCartViewer(){
         cart.hidePreview()
     }
 
+
     return (
-        <div className={cart.preview? "cartPreview hidden":"cartPreview" }>
-            <div className="title">
-                <i onClick={hide} className="fa-solid fa-chevron-right"></i>
-                <h2>Cart</h2>
-                <div></div>
+        <>
+            <div className={cart.preview? "cartPreview":"cartPreview hide"}>
+                <div className="title">
+                    <i onClick={hide} className="fa-solid fa-chevron-right"></i>
+                    <h2>Cart</h2>
+                    <div></div>
+                </div>
+                <div className="cart">
+                    {isEmpty()? 
+                    <p>Cart is empty</p>:
+                    getItems()
+                    }
+                </div>
             </div>
-            <div className="cart">
-                {isEmpty()? 
-                <p>Cart is empty</p>:
-                getItems()
-                }
-            </div>
-        </div>
+            <div className={cart.preview? "shadow":"shadow hide" } onClick={cart.hidePreview}></div>
+        </>
     )
 }
 
