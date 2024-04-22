@@ -8,6 +8,7 @@ import MainContent from './components/body/Maincontent'
 import { register } from 'swiper/element/bundle';
 import Footer from './components/footer/footer'
 import CartProvider from './CartContext'
+import ShoppingCartViewer from './components/shoppingCart/shoppingCartViewer'
 
 register();
 
@@ -19,6 +20,7 @@ function App() {
       <CartProvider>
         <Navbar/>
         <MainContent/>
+        <ShoppingCartViewer />
         <Footer />
       </CartProvider>
     </div>

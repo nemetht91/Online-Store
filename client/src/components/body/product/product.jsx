@@ -27,7 +27,7 @@ function Product(props){
         <Price detail={props.detail}/>
         <Quantity quantity={quantity} increase={increaseQuantity} decrease={deascreaseQuantity} />
         <button onClick={() => {
-            cart.addOneToCart({id: props.detail.id, quantity: quantity});
+            cart.addOneToCart({item: props.detail, quantity: quantity});
         }} className="cart">Add to Cart</button>
     </div>
 }

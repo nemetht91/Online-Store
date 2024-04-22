@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./logo";
 import SearchBar from "./searchBar";
-import ShoppingCart from "./shoppingCart";
+import ShoppingCartToogle from "../shoppingCart/shoppingCartToogle";
 import Menu from "./menu";
 
 function Navbar(){
@@ -10,7 +10,7 @@ function Navbar(){
             <div className="navbar">
                 <Logo/>
                 <SearchBar/>
-                <ShoppingCart/>
+                <ShoppingCartToogle/>
             </div>
             <Menu/>
         </>

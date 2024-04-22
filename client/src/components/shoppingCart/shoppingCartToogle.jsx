@@ -2,10 +2,12 @@ import React, {useState} from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../CartContext';
 
+
 function ShoppingCartToogle(props){
     const cart = useContext(CartContext);
 
     function handleClick(){
+        cart.showPreview();
     }
 
     return <div onClick={handleClick} className='shoppingCart'>

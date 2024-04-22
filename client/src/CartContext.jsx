@@ -3,23 +3,28 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext({
     items: [],
+    preview: Boolean,
     getProductQuantity: () => {}, // The actual function is not defined here, we just telling that there is a function inside the context with this name
     addOneToCart: () => {},
     removeOneToCart: () => {},
     deleteFromCart: () => {},
     getTotalCost: () => {},
-    getTotalQuantity: () => {}
+    getTotalQuantity: () => {},
+    showPreview: () => {},
+    hidePreview: () => {}
 });
 
 
 export function CartProvider({children}){
 
     const [cartProduct, setCartProduct] = useState([]);
+    const [preview, setPreview] = useState([false]);
 
-    // [{id: 1, quantity: 2}]
+    // [{item: {}, quantity: 2}]
 
     function getProductQuantity(id){
-        const quantity = cartProduct.find((product) => { return product.id === id})?.quantity;
+        const quantity = cartProduct.find((product) => { return product.item.id === id})?.quantity;
+
 
         if(quantity == undefined){
             return 0;
@@ -29,12 +34,14 @@ export function CartProvider({children}){
     }
 
 
-    function addOneToCart(item){
+    function addOneToCart(newItem){
+        
+        const {item, newQuantity} = newItem;
 
         const quantity = getProductQuantity(item.id);
         if (quantity == 0){
             setCartProduct((prevValue) => {
-                return [...prevValue, item];
+                return [...prevValue, newItem];
             });
 
             return;
@@ -43,8 +50,8 @@ export function CartProvider({children}){
         setCartProduct(
             cartProduct.map(
                 product => 
-                product.id === item.id
-                ? {...product, quantity: product.quantity + item.quantity} : product
+                product.item.id === item.id
+                ? {...product, quantity: product.quantity + newItem.quantity} : product
             )
         )
 
@@ -66,7 +73,7 @@ export function CartProvider({children}){
         setCartProduct(
             cartProduct.map(
                 product => 
-                product.id === item.id
+                product.item.id === id
                 ? {...product, quantity: product.quantity -1 } : product
             )
         )
@@ -75,7 +82,7 @@ export function CartProvider({children}){
     function deleteFromCart(id){
         setCartProduct( cartProduct =>
             cartProduct.filter( 
-                product => product.id != id
+                product => product.item.id != id
             )
         )
     }
@@ -95,15 +102,26 @@ export function CartProvider({children}){
 
         return totalQuantity;
     }
+
+    function showPreview(){
+        setPreview(true);
+    }
+
+    function hidePreview(){
+        setPreview(false);
+    }
     
     const contextValue  ={
         items: cartProduct,
+        preview: preview,
         getProductQuantity,
         addOneToCart,
         removeOneToCart,
         deleteFromCart,
         getTotalCost,
-        getTotalQuantity
+        getTotalQuantity,
+        showPreview,
+        hidePreview
     }
 
     return (

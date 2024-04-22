@@ -1,0 +1,93 @@
+
+.cartPreview{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    height: 100vh;
+    background-color: white;
+    width: 300px;
+}
+
+.cartPreview .title{
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0px 20px;
+}
+
+.cartPreview .cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 150px);
+}
+
+.cartPreview .cartItems{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.cartPreview .cartItem{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    padding: 0px 30px;
+}
+
+.cartPreview .cartItem p{
+    font-size: 12px;
+}
+
+.cartItems .cartItem h3{
+    font-size: 14px;
+}
+
+.cartPreview .cartItem img{
+    width: 50px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.cartPreview .quantity{
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.cartPreview .quantity p,
+.cartPreview .quantity button{
+    font-size: 12px;
+}
+
+.cartItem .remove{
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    padding: 5px;
+}
+
+.cartItem .remove:hover{
+    cursor: pointer;
+}
+
+.cartPreview .summary{
+    margin: 0px 30px;
+
+}
+
+.cartPreview .summary .total{
+    padding-bottom: 40px;
+}
+
+.cartPreview button{
+    width: 100%;
+}
