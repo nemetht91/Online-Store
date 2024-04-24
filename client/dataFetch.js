@@ -24,6 +24,10 @@ class DataFetcher{
         return await this.fetchData('products');
     }
 
+    async getPopularCategories(){
+        return await this.fetchData('popular-categories');
+    }
+
 }
 
 const dataFetcher = new DataFetcher();

@@ -4,13 +4,14 @@ import Options from "./options/Options";
 import Slider from "./slider";
 import RedButton from "./Button";
 import promos from "../../../data/promos";
-import categories from "../../../data/categories";
-import Categories from "./Category/categories";
 import dataFetcher from "../../../dataFetch";
+import Categories from "./Category/categories"
 
 function HomeContent(){
 
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    
     
     useEffect(() => {
         const fetchProducts = async () => {
@@ -18,7 +19,15 @@ function HomeContent(){
 
             setProducts(data);
         }
+
+        const fetchCategories = async () => {
+            const data = await dataFetcher.getPopularCategories();
+
+            setCategories(data);
+        }
+
         fetchProducts();
+        fetchCategories();
     }, []);
 
     return <div className="home-content">

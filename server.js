@@ -2,6 +2,8 @@ import express from "express"
 import bodyParser from "body-parser";
 import cors from "cors"
 import products from "./client/data/products.js";
+import categories from "./client/data/categories.js";
+import { getPopularCategories } from "./client/data/categories.js";
 
 const app = express();
 
@@ -9,6 +11,8 @@ const port = 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
+
 
 app.get('/api/customers', (req, res) => {
     const customers = [
@@ -33,6 +37,12 @@ app.get('/api/trending', (req, res) => {
 app.get('/api/products', (req, res) => {
     res.json(products);
 })
+
+app.get('/api/popular-categories', (req, res) =>{
+    const popularCategories = getPopularCategories();
+    res.json(popularCategories);
+})
+
 
 
 app.listen(port, () => {
