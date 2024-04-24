@@ -7,7 +7,14 @@ import "./shoppingCart.css"
 
 function ShoppingCartViewer(){
     const cart = useContext(CartContext);
+    const [preload, setPreload] = useState(true);
 
+    useEffect(() => {
+        if(cart.preview){
+            setPreload(false);
+        }
+    }, [cart.preview])
+  
 
     function isEmpty(){
         return cart.items.length <= 0;
@@ -31,13 +38,17 @@ function ShoppingCartViewer(){
     }
 
     function hide(){
-        cart.hidePreview()
+        cart.hidePreview();
+    }
+
+    function hideOrPreload(){
+        return preload?"cartPreview noAnimation":"cartPreview hide"
     }
 
 
     return (
         <>
-            <div className={cart.preview? "cartPreview":"cartPreview hide"}>
+            <div className={cart.preview? "cartPreview":hideOrPreload()}>
                 <div className="title">
                     <i onClick={hide} className="fa-solid fa-chevron-right"></i>
                     <h2>Cart</h2>

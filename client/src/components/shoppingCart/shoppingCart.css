@@ -8,7 +8,7 @@
     background-color: white;
     width: 400px;
     animation: MoveIn;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-direction: normal;
@@ -26,14 +26,17 @@
 
 .cartPreview.hide{
     animation: MoveOut;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-direction: normal;
     right: -400px;
 }
 
-
+.noAnimation{
+    animation: none;
+    right: -400px;
+}
 
 
 .cartPreview .title{

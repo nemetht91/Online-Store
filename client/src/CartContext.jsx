@@ -42,7 +42,7 @@ export function CartProvider({children}){
             setCartProduct((prevValue) => {
                 return [...prevValue, newItem];
             });
-
+            setPreview(true);
             return;
         }
 
@@ -53,6 +53,7 @@ export function CartProvider({children}){
                 ? {...product, quantity: product.quantity + newItem.quantity} : product
             )
         )
+        setPreview(true);
 
 
     }

@@ -14,20 +14,14 @@ register();
 
 function App() {
   const [count, setCount] = useState(0)
-  const [noAnimation, setNoAnimation] = useState(true);
-
-  useEffect(() => {
-    setNoAnimation(false);
-  },[])
-
-
+ 
 
   return (
-    <div className={noAnimation? "app noAnimation":"app"}>
+    <div className="app">
       <CartProvider>
         <Navbar/>
         <MainContent/>
-        <ShoppingCartViewer />
+        <ShoppingCartViewer  />
         <Footer />
       </CartProvider>
     </div>
