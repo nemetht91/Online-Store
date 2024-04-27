@@ -36,5 +36,97 @@ body{
 }
 
 
+button.red-button{
+  background-color: red;
+  color: white;
+  border: 1px red solid;
+  border-radius: 20px;
+}
 
+button.red-button:hover{
+  border: 1px red solid;
+  background-color: white;
+  color: red;
+  
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+.main-content{
+  margin-bottom: 75px;
+}
+
+.products-page{
+  margin-top: 140px;
+  width: 100vw;
+
+}
+
+.main-promo{
+  margin-top: 140px;
+
+  height: 600px;
+  width: 100vw;
+}
+
+.content{
+  max-width: 1800px;
+  margin: 0 auto;
+  overflow: auto;
+
+}
+
+.home-content .deals{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 40px;
+}
+
+.home-content  h2.title{
+  margin-left: 50px;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.custom-slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+swiper-container{
+  width: 95%;
+}
+
+
+
+.custom-prev-button i,
+.custom-next-button i{
+  font-size: 24px;
+
+}
+
+.custom-prev-button:hover,
+.custom-next-button:hover{
+  cursor: pointer;
+}
+
+.red-button{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.promos{
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 480px;
+  gap: 50px;
+  width: 95%;
+  margin-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+}
 

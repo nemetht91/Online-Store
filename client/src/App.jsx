@@ -4,11 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Customers from './components/customers'
 import Navbar from './components/navigation/navbar'
-import MainContent from './components/body/Maincontent'
 import { register } from 'swiper/element/bundle';
 import Footer from './components/footer/footer'
 import CartProvider from './CartContext'
 import ShoppingCartViewer from './components/shoppingCart/shoppingCartViewer'
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/routes/Home'
+import Products from './components/routes/Products'
+
+
 
 register();
 
@@ -20,7 +24,10 @@ function App() {
     <div className="app">
       <CartProvider>
         <Navbar/>
-        <MainContent/>
+        <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path='/products' element={<Products/>}/>
+        </Routes>
         <ShoppingCartViewer  />
         <Footer />
       </CartProvider>

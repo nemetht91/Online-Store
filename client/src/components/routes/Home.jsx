@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from "react";
-import Promo from "./promo/Promo";
-import Options from "./options/Options";
-import Slider from "./slider";
-import RedButton from "./Button";
+import Promo from "../body/promo/Promo";
+import Options from "../body/options/Options";
+import Slider from "../body/slider";
+import RedButton from "../body/Button";
 import promos from "../../../data/promos";
 import dataFetcher from "../../../dataFetch";
-import Categories from "./Category/categories"
+import Categories from "../body/Category/categories"
 
-function HomeContent(){
+function Home(){
 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -61,4 +61,4 @@ function HomeContent(){
     </div>
 }
 
-export default HomeContent;
+export default Home;
