@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useLocation } from "react-router-dom";
 
 function Products(){
 
+    const location = useLocation();
+
+
+
     return <div className="products-page">
-        <h1>Products Type</h1>
+        <h1>{location.state.name}</h1>
     </div>
 }
 
