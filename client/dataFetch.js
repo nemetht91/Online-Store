@@ -24,8 +24,18 @@ class DataFetcher{
         return await this.fetchData('products');
     }
 
+    async getProducts(categoryId){
+        return await this.fetchData('products?'+new URLSearchParams({
+            categoryId: categoryId
+        }));
+    }
+
     async getPopularCategories(){
         return await this.fetchData('popular-categories');
+    }
+
+    async getDeals(){
+        return await this.fetchData('deals');
     }
 
 }

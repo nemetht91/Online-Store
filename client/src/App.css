@@ -130,3 +130,20 @@ swiper-container{
   padding-bottom: 40px;
 }
 
+/* Products page */
+.products-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-page h1{
+  margin: 40px 0px;
+}
+
+.products-page .products{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}

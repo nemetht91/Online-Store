@@ -15,7 +15,7 @@ function Home(){
     
     useEffect(() => {
         const fetchProducts = async () => {
-            const data = await dataFetcher.getAllProducts();
+            const data = await dataFetcher.getDeals();
 
             setProducts(data);
         }

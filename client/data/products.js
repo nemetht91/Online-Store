@@ -270,6 +270,108 @@ const products =[
     description: "This is a product description",
     categoryId: 5
 },
+{
+    id: 31,
+    img: "https://static.wixstatic.com/media/c837a6_11d76874bf4f4964b3d89b3fde8b03d4~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_11d76874bf4f4964b3d89b3fde8b03d4~mv2.jpg",
+    name: "Baguette",
+    price: 2.49,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 32,
+    img: "https://static.wixstatic.com/media/c837a6_51f8fa36dcf644998682a7a03bdf83d6~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_51f8fa36dcf644998682a7a03bdf83d6~mv2.jpg",
+    name: "Brioche Buns",
+    price: 0.49,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 33,
+    img: "https://static.wixstatic.com/media/c837a6_636a5f6385ce4f96b9057253acea2086~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_636a5f6385ce4f96b9057253acea2086~mv2.jpg",
+    name: "Bagels",
+    price: 1.29,
+    discount: 0.1,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 34,
+    img: "https://static.wixstatic.com/media/c837a6_636a5f6385ce4f96b9057253acea2086~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_636a5f6385ce4f96b9057253acea2086~mv2.jpg",
+    name: "Whole Wheat Bread",
+    price: 2.89,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 35,
+    img: "https://static.wixstatic.com/media/c837a6_ea0eccfaea5745989ed28ffa09f0a3b8~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_ea0eccfaea5745989ed28ffa09f0a3b8~mv2.jpg",
+    name: "White Bread",
+    price: 2.59,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 36,
+    img: "https://static.wixstatic.com/media/c837a6_7d0cb61ce3f64c9092c5e58e6270bb90~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_7d0cb61ce3f64c9092c5e58e6270bb90~mv2.jpg",
+    name: "Croissants",
+    price: 2.59,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 37,
+    img: "https://static.wixstatic.com/media/c837a6_dd230a3f834349489ffa328e14edd27a~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_dd230a3f834349489ffa328e14edd27a~mv2.jpg",
+    name: "Chocolate Croissants",
+    price: 2.69,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 38,
+    img: "https://static.wixstatic.com/media/c837a6_4cb5c7b10bf34549861bc763c08ecddd~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_4cb5c7b10bf34549861bc763c08ecddd~mv2.jpg",
+    name: "Banana Cake",
+    price: 5.99,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 39,
+    img: "https://static.wixstatic.com/media/c837a6_6051735fe0f54527ad1c16cd0638b1f2~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_6051735fe0f54527ad1c16cd0638b1f2~mv2.jpg",
+    name: "Brownies",
+    price: 5.99,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
+{
+    id: 40,
+    img: "https://static.wixstatic.com/media/c837a6_36d41200f4b64ce9ae3217477852d196~mv2.jpg/v1/fill/w_284,h_379,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_36d41200f4b64ce9ae3217477852d196~mv2.jpg",
+    name: "Chocolate Cookies",
+    price: 5.99,
+    discount: 0,
+    description: "This is a product description",
+    categoryId: 6
+},
 ];
+
+export function getProducts(categoryId){
+    return products.filter((product) => {
+        return product.categoryId == categoryId
+    })
+}
+
+export function getDeals(){
+    return products.filter((product) => {
+        return product.discount > 0;
+    })
+}
 
 export default products;

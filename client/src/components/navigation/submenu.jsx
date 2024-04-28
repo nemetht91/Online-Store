@@ -8,8 +8,8 @@ function SubMenu(props){
     return <div onMouseEnter={() => {props.SubActive()}} onMouseLeave={() => {props.SubDeactive()}} className="subMenu">
         {props.sub?.map((item, index) => {
             return <p onClick={() => {
-                navigate(`/products/${props.main}/${item}`, {state:{name:item}});
-            }} key={index}>{item}</p>
+                navigate(`/${props.main.url}/${item.name}`, {state:{name:item.name, id: item.id}});
+            }} key={index}>{item.name}</p>
         })}
     </div>
 }

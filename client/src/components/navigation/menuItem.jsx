@@ -6,6 +6,7 @@ function MenuItem(props){
     const [isActive, setIsActice] = useState(false);
     const [isSubActive, setIsSubctive] = useState(false)
     const navigate = useNavigate();
+    const {main, sub} = props.menu;
 
     function handleMouseEnter(){
         setIsActice(true);
@@ -24,14 +25,14 @@ function MenuItem(props){
     }
 
     function IsSubMenu(){
-        return props.menu.sub.length > 0;
+        return sub.length > 0;
     }
 
     function handleClick(){
         if(IsSubMenu()){
             return;
         }
-        navigate(`/products/${props.menu.main}`,{state:{name:props.menu.main}});
+        navigate(`/${main.url}`,{state:{name:main.name}});
     }
 
     return <div className="menuItem">
@@ -40,9 +41,9 @@ function MenuItem(props){
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}>
-            {props.menu.main}
+            {main.name}
         </p>
-        { (isActive || isSubActive) && <SubMenu sub={props.menu.sub} main={props.menu.main} SubActive={SubActive} SubDeactive={SubDeactive}/>}
+        { (isActive || isSubActive) && <SubMenu sub={sub} main={main} SubActive={SubActive} SubDeactive={SubDeactive}/>}
     </div>
 }
 
