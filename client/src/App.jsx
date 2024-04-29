@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Customers from './components/customers'
 import Navbar from './components/navigation/navbar'
 import { register } from 'swiper/element/bundle';
 import Footer from './components/footer/footer'
@@ -11,7 +8,8 @@ import ShoppingCartViewer from './components/shoppingCart/shoppingCartViewer'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/routes/Home'
 import Products from './components/routes/Products'
-
+import ErrorPage from './components/routes/ErrorPage';
+import NotFound from './components/routes/NotFound';
 
 
 register();
@@ -26,7 +24,10 @@ function App() {
         <Navbar/>
         <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path='/products/*' element={<Products/>}/>
+            <Route path='/products/*' element={<Products />} errorElement={<ErrorPage />}/>
+            <Route path='/deals' element={<Products />}/>
+            <Route path='/pagenotfound' element={<NotFound />}/>
+
         </Routes>
         <ShoppingCartViewer  />
         <Footer />
