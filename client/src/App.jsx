@@ -10,7 +10,7 @@ import Home from './components/routes/Home'
 import Products from './components/routes/Products'
 import ErrorPage from './components/routes/ErrorPage';
 import NotFound from './components/routes/NotFound';
-
+import ProductInfo from './components/routes/ProductInfo';
 
 register();
 
@@ -27,7 +27,7 @@ function App() {
             <Route path='/products/*' element={<Products />} errorElement={<ErrorPage />}/>
             <Route path='/deals' element={<Products />}/>
             <Route path='/pagenotfound' element={<NotFound />}/>
-
+            <Route path='/product/*' element={<ProductInfo />} errorElement={<ErrorPage />}/>
         </Routes>
         <ShoppingCartViewer  />
         <Footer />

@@ -38,6 +38,12 @@ class DataFetcher{
         return await this.fetchData('deals');
     }
 
+    async getProduct(productId){
+        return await this.fetchData('product?'+new URLSearchParams({
+            productId: productId
+        }));
+    }
+
 }
 
 const dataFetcher = new DataFetcher();

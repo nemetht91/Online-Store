@@ -374,4 +374,10 @@ export function getDeals(){
     })
 }
 
+export function getProduct(id){
+    return products.find((product) => {
+        return product.id == id;
+    })
+}
+
 export default products;

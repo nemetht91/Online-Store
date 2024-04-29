@@ -13,6 +13,12 @@
     object-fit: contain;
 }
 
+.product img:hover,
+.product p:hover,
+.price:hover{
+    cursor: pointer;
+}
+
 .product p{
     margin: 0px 7.5px;
 }

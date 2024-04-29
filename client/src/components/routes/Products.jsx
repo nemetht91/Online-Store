@@ -21,7 +21,6 @@ function Products(){
                 data = await dataFetcher.getProducts(location.state.id);
             }
             setProducts(data);
-            console.log(products);
         }
 
         if(location.state == undefined){
