@@ -127,17 +127,19 @@ swiper-container{
 }
 
 /* Products page */
+.page{
+  margin-top: 140px;
+  width: 100vw;
+}
+
 
 .products-page,
 .notfound{
-  margin-top: 140px;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 
 .products-page h1,
 .notfound h1{
@@ -150,4 +152,72 @@ swiper-container{
   gap: 20px;
 }
 
+/* Product info page*/
+.productInfo{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding-top: 20px;
+}
 
+
+.productInfo img{
+  width: 450px;
+  height: 675px;
+  object-fit: contain;
+  border: 1px solid black;
+}
+
+.productInfo .details{
+  width: 400px;
+
+}
+
+.productInfo .product{
+  border: none;
+  margin-top: 0px;
+  padding-top: 0px;
+  width: 100%;
+}
+
+.productInfo .product p,
+.productInfo .quantity
+{
+  margin: 0px;
+}
+
+.productInfo .price
+{
+  margin: 15px 0px;
+  width: 50px;
+}
+
+.productInfo .product button.cart{
+  margin: 15px 0px;
+  background-color: red;
+  width: 100%;
+}
+
+.productInfo .product p:hover{
+  cursor:auto;
+}
+
+.productInfo .info{
+  border-bottom: 1px solid black;
+  padding: 15px 0px;
+}
+
+.productInfo .info p{
+  padding-top: 10px;
+
+}
+
+.productInfo .info .title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.productInfo .info .title:hover{
+  cursor: pointer;
+}
