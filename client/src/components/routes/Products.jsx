@@ -33,11 +33,11 @@ function Products(){
         
     }, [location]);
 
-    return <div className="products-page">
+    return <div className="products-page page">
         <h1>{title}</h1>
         <div className="products">
             {products.map((product) => {
-                return <Product detail={product}/>
+                return <Product key={product.id} detail={product}/>
             })}
         </div>
     </div>
