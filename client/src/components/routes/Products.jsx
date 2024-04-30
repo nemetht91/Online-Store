@@ -21,7 +21,7 @@ function Products(){
             }else{
                 data = await dataFetcher.getProducts(location.state.id);
             }
-            products.updateProducts(data);
+            products.updateProducts(data, {name: location.state.name, id: location.state.id});
         }
 
         if(location.state == undefined){

@@ -221,3 +221,10 @@ swiper-container{
 .productInfo .info .title:hover{
   cursor: pointer;
 }
+
+
+.productLayout div{
+  display: flex;
+  
+}
+

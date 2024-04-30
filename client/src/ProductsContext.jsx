@@ -3,19 +3,19 @@ import { CartContext } from "./CartContext";
 
 export const ProductsContext = createContext({
     items: [],
-
-    getProducts: () => {},
+    category: {},
+    getProduct: () => {},
     updateProducts: () => {},
 });
 
 export function ProductProvider({children}){
 
     const [products, setProducts] = useState([]);
+    const [category, setCategory] = useState([]);
 
-    function updateProducts(data){
-            console.log(data);
-
+    function updateProducts(data, category){
             setProducts(data);
+            setCategory(category);
     }
 
     function getProduct(id){
@@ -26,6 +26,7 @@ export function ProductProvider({children}){
 
     const contextValue ={
         items: products,
+        category: category,
         updateProducts,
         getProduct,
     }
