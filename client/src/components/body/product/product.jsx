@@ -26,7 +26,7 @@ function Product(props){
     }
 
     function handleClick(){
-        navigate(`/product/${props.detail.name}`,{state:{id:props.detail.id}});
+        navigate(`/products/${props.category}/${props.detail.name}`,{state:{id:props.detail.id}});
 
     }
 

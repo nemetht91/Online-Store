@@ -1,6 +1,6 @@
 const stucture = [
     {
-        main: {name: "Deals", url: "deals"}, 
+        main: {name: "Deals", url: "products"}, 
         sub:[]
     },
     {

@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { useLocation } from "react-router-dom";
 import dataFetcher from "../../../dataFetch";
 import Product from "../body/product/product";
 import { useNavigate } from "react-router-dom";
+import { ProductsContext } from "../../ProductsContext";
 
 
 function Products(){
-    const [products, setProducts] = useState([]);
-    const [title, setTitle] = useState("");
+    const products = useContext(ProductsContext);
+    const [category, setCategory] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -20,24 +21,24 @@ function Products(){
             }else{
                 data = await dataFetcher.getProducts(location.state.id);
             }
-            setProducts(data);
+            products.updateProducts(data);
         }
 
         if(location.state == undefined){
             navigate('/pagenotfound');
         }
         else{
-            setTitle(location.state.name);
+            setCategory(location.state.name);
             fetchProducts();
         }
         
     }, [location]);
 
     return <div className="products-page page">
-        <h1>{title}</h1>
+        <h1>{category}</h1>
         <div className="products">
-            {products.map((product) => {
-                return <Product key={product.id} detail={product}/>
+            {products.items.map((product) => {
+                return <Product key={product.id} detail={product} category={category}/>
             })}
         </div>
     </div>

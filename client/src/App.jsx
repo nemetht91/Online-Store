@@ -11,6 +11,7 @@ import Products from './components/routes/Products'
 import ErrorPage from './components/routes/ErrorPage';
 import NotFound from './components/routes/NotFound';
 import ProductInfo from './components/routes/ProductInfo';
+import { ProductProvider } from './ProductsContext';
 
 register();
 
@@ -22,13 +23,18 @@ function App() {
     <div className="app">
       <CartProvider>
         <Navbar/>
-        <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path='/products/*' element={<Products />} errorElement={<ErrorPage />}/>
-            <Route path='/deals' element={<Products />}/>
-            <Route path='/pagenotfound' element={<NotFound />}/>
-            <Route path='/product/*' element={<ProductInfo />} errorElement={<ErrorPage />}/>
-        </Routes>
+        <ProductProvider>
+          <Routes>
+              <Route path="/" element={<Home/>} />
+              <Route path='/products'>
+                <Route path=':category'>
+                    <Route index element={<Products />}/>
+                    <Route path=':productName' element={<ProductInfo />}/>
+                </Route>
+              </Route>
+              <Route path='/pagenotfound' element={<NotFound />}/>
+          </Routes>
+        </ProductProvider>
         <ShoppingCartViewer  />
         <Footer />
       </CartProvider>

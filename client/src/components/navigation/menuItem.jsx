@@ -32,7 +32,7 @@ function MenuItem(props){
         if(IsSubMenu()){
             return;
         }
-        navigate(`/${main.url}`,{state:{name:main.name}});
+        navigate(`/${main.url}/${main.name}`,{state:{name:main.name}});
     }
 
     return <div className="menuItem">
