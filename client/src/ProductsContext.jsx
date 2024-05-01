@@ -1,21 +1,24 @@
-import { createContext, useState } from "react";
-import { CartContext } from "./CartContext";
+import { createContext, useState, useEffect } from "react";
 
 export const ProductsContext = createContext({
     items: [],
     category: {},
     getProduct: () => {},
     updateProducts: () => {},
+    getProductByName: () => {},
 });
 
 export function ProductProvider({children}){
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")));
     const [category, setCategory] = useState([]);
 
+  
     function updateProducts(data, category){
             setProducts(data);
             setCategory(category);
+            localStorage.setItem("products", JSON.stringify(data));
+            
     }
 
     function getProduct(id){
@@ -24,11 +27,18 @@ export function ProductProvider({children}){
         })
     }
 
+    function getProductByName(name){
+        return products.find((product) => {
+            return product.name == name;
+        })
+    }
+
     const contextValue ={
         items: products,
         category: category,
         updateProducts,
         getProduct,
+        getProductByName,
     }
 
     return (

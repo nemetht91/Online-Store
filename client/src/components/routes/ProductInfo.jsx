@@ -8,16 +8,20 @@ import { useContext } from "react";
 import { CartContext } from "../../CartContext";
 import { useNavigate } from "react-router-dom";
 import ProductLayout from "./ProductLayout";
+import { ProductsContext } from "../../ProductsContext";
+import { useParams } from "react-router-dom";
 
 
 function ProductInfo(){
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [isActive, setIsActive] = useState([true, false, false]);
 
     const cart = useContext(CartContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const products = useContext(ProductsContext);
+    const params = useParams();
 
 
 
@@ -50,19 +54,16 @@ function ProductInfo(){
 
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            const data = await dataFetcher.getProduct(location.state.id);
-            setProduct(data);
-        }
+        const data = products.getProductByName(params.productName);
+        console.log(products);
 
-        if(location.state == undefined){
+        setProduct(data);
+
+        if(product == undefined){
             navigate('/pagenotfound');
         }
-        else{
-            fetchProduct();
-        }
         
-    }, [location]);
+    }, [params]);
 
     return <div className="page">
     <ProductLayout currentPruduct={product}/>

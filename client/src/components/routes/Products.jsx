@@ -50,7 +50,7 @@ function Products(){
         }else{
             fetchProducts();
         }
-    }, [loaded, location])
+    }, [loaded, category])
 
 
     return <div className="products-page page">
