@@ -6,14 +6,14 @@ const stucture = [
     {
         main: {name: "Food", url: "products"}, 
         sub:[
-            {name: "Vegtable", id: 1}, 
+            {name: "Vegtables", id: 1}, 
             {name: "Fruit", id: 2}, 
             {name: "Meat & Poultry", id: 3}, 
             {name: "Fish & Seafood", id: 4}, 
-            {name: "Dairy & Egg", id: 5}, 
+            {name: "Dairy & Eggs", id: 5}, 
             {name: "Bakery", id: 6}, 
             {name: "Pastas & Grains", id: 7}, 
-            {name: "Cereals and Snacks", id: 8}
+            {name: "Cereals & Snacks", id: 8}
         ]},
     {
         main: {name: "Beverages", url: "products"}, 

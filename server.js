@@ -4,6 +4,7 @@ import cors from "cors"
 import {getProducts, getDeals, getProduct} from "./client/data/products.js";
 import categories from "./client/data/categories.js";
 import { getPopularCategories } from "./client/data/categories.js";
+import { getCategoryByName } from "./client/data/categories.js";
 
 const app = express();
 
@@ -56,6 +57,17 @@ app.get('/api/product', (req, res) => {
     const product = getProduct(productId);
 
     res.json(product);
+})
+
+app.get('/api/category', (req, res) => {
+    const categoryName = req.query.categoryName;
+
+    const category = getCategoryByName(categoryName);
+    if(category == undefined){
+        res.json({})
+    }else{
+        res.json(category);
+    }
 })
 
 

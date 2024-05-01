@@ -65,7 +65,7 @@ function ProductInfo(){
     }, [location]);
 
     return <div className="page">
-    <ProductLayout id={product.id}/>
+    <ProductLayout currentPruduct={product}/>
         <div className="productInfo">
             <img src={product.img} alt={product.name} />
             <div className="details">

@@ -44,6 +44,12 @@ class DataFetcher{
         }));
     }
 
+    async getCategory(categoryName){
+        return await this.fetchData('category?'+new URLSearchParams({
+            categoryName: categoryName.replace(/(\r\n|\n|\r)/gm, "")
+        }));
+    }
+
 }
 
 const dataFetcher = new DataFetcher();

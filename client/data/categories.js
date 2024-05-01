@@ -6,7 +6,7 @@ const categories = [
     {id: 5, name: "Dairy & Eggs", img:"../src/assets/img/dairy.png", url:""},
     {id: 6, name: "Bakery", img:"../src/assets/img/bakery.png", url:""},
     {id: 7, name: "Pastas & Grains", img:"", url:""},
-    {id: 8, name: "Cereal & Snacks", img:"../src/assets/img/cereal.png", url:""},
+    {id: 8, name: "Cereals & Snacks", img:"../src/assets/img/cereal.png", url:""},
     {id: 9, name: "Tea", img:"", url:""},
     {id: 10, name: "Coffee", img:"", url:""},
     {id: 11, name: "Soft Drinks", img:"../src/assets/img/softdrink.png", url:""},
@@ -22,6 +22,10 @@ export const popularCategories = [1, 6, 13, 5, 3, 11, 15, 8];
 
 export function getCategoriy(id){
     return categories.find((category) => {return category.id === id})
+}
+
+export function getCategoryByName(name){
+    return categories.find((category) => {return category.name === name})
 }
 
 export function getPopularCategories(){
