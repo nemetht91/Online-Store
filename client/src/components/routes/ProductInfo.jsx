@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
-import dataFetcher from "../../../dataFetch";
 import Info from "../body/productInfo/info";
 import Price from "../body/product/price";
 import Quantity from "../body/product/quantity";
@@ -22,8 +21,6 @@ function ProductInfo(){
     const location = useLocation();
     const products = useContext(ProductsContext);
     const params = useParams();
-
-
 
     function increaseQuantity(){
         setQuantity(quantity + 1);
@@ -53,9 +50,10 @@ function ProductInfo(){
     }
 
 
+
+
     useEffect(() => {
         const data = products.getProductByName(params.productName);
-        console.log(products);
 
         setProduct(data);
 
@@ -65,7 +63,7 @@ function ProductInfo(){
         
     }, [params]);
 
-    return <div className="page">
+    return <div className="page productInfo-page">
     <ProductLayout currentPruduct={product}/>
         <div className="productInfo">
             <img src={product.img} alt={product.name} />

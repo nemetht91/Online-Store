@@ -155,10 +155,12 @@ swiper-container{
 /* Product info page*/
 .productInfo{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 30px;
   padding-top: 20px;
+  width: 900px;
+
 }
 
 
@@ -222,9 +224,42 @@ swiper-container{
   cursor: pointer;
 }
 
+.productInfo-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+
+}
+
+.productLayout{
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin-bottom: 30px;
+}
 
 .productLayout div{
   display: flex;
-  
+  gap: 5px;
 }
 
+.productLayout .link{
+  color: black;
+}
+
+.productLayout .link:hover{
+  color: black;
+  cursor: pointer;
+}
+
+.productLayout .productName,
+.productLayout p.disabled{
+  color: gray;
+}
+
+.productLayout p.disabled:hover{
+  cursor: auto;
+  color: gray;
+
+}
