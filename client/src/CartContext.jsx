@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import products from "../data/products";
 
 
 export const CartContext = createContext({
@@ -19,8 +20,25 @@ export function CartProvider({children}){
 
     const [cartProduct, setCartProduct] = useState([]);
     const [preview, setPreview] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     // [{item: {}, quantity: 2}]
+
+    useEffect(() => {
+        var cart = JSON.parse(localStorage.getItem("cart"));
+        console.log(cart);
+
+        if(cart != null){
+            setCartProduct(cart);
+        }
+    }, [])
+
+    useEffect(() => {
+        if(isLoaded){
+            localStorage.setItem("cart", JSON.stringify(cartProduct));
+        }
+        setIsLoaded(true);
+    },[cartProduct])
 
     function getProductQuantity(id){
         const quantity = cartProduct.find((product) => { return product.item.id === id})?.quantity;
@@ -54,8 +72,6 @@ export function CartProvider({children}){
             )
         )
         setPreview(true);
-
-
     }
 
     function removeOneToCart(id){
