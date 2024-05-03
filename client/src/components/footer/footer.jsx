@@ -4,6 +4,7 @@ import Banner from "./banner";
 import Menu from "../navigation/menu";
 import Logo from "../navigation/logo";
 import categories  from "../../../data/categories";
+import { Link } from "react-router-dom";
 
 function Footer(){
 
@@ -28,7 +29,7 @@ function Footer(){
                 <h2>Categories</h2>
                 <div className="links">
                     {categories.map((category, index) => {
-                        return (<a key={index} href={category.url}>{category.name}</a>)
+                        return (<Link key={index} to={`/products/${category.name}`}>{category.name}</Link>)
                     })}
                 </div>
             </div>

@@ -37,7 +37,7 @@ function Products(){
     useEffect(() => {
         const fetchProducts = async () => {
             var data = undefined;
-            if(location.state.name == "Deals"){
+            if(params.category == "Deals"){
                 data = await dataFetcher.getDeals();
             }else{
                 data = await dataFetcher.getProducts(category.id);
@@ -49,6 +49,7 @@ function Products(){
             navigate("pagenotfound");
         }else{
             fetchProducts();
+            window.scrollTo(0, 0);
         }
     }, [loaded, category])
 
