@@ -26,7 +26,6 @@ export function CartProvider({children}){
 
     useEffect(() => {
         var cart = JSON.parse(localStorage.getItem("cart"));
-        console.log(cart);
 
         if(cart != null){
             setCartProduct(cart);
