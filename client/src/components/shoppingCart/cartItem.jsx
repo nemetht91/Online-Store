@@ -24,8 +24,10 @@ function CartItem(props){
     return <div className="cartItem">
         <img src={props.item.img} alt={props.item.name} />
         <div className="text">
-            <p>{props.item.name}</p>
-            <Price detail={props.item}/>
+            <div>
+                <p>{props.item.name}</p>
+                <Price detail={props.item}/>
+            </div>
             <Quantity decrease={decrease} increase={increase} quantity={props.quantity}/>
         </div>
         <p className="remove" onClick={remove}>x</p>

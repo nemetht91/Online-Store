@@ -12,6 +12,7 @@ import ErrorPage from './components/routes/ErrorPage';
 import NotFound from './components/routes/NotFound';
 import ProductInfo from './components/routes/ProductInfo';
 import { ProductProvider } from './ProductsContext';
+import ShoppingCartSummary from './components/shoppingCart/shoppingcartSummary';
 
 register();
 
@@ -32,6 +33,7 @@ function App() {
                     <Route path=':productName' element={<ProductInfo />}/>
                 </Route>
               </Route>
+              <Route path='/cart' element={<ShoppingCartSummary/>}/>
               <Route path='/pagenotfound' element={<NotFound />}/>
           </Routes>
         </ProductProvider>

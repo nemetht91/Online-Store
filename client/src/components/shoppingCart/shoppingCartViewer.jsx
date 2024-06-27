@@ -4,10 +4,12 @@ import { CartContext } from "../../CartContext";
 import CartItem from "./cartItem";
 import RedButton from "../body/Button";
 import "./shoppingCart.css"
+import { useNavigate } from "react-router-dom";
 
 function ShoppingCartViewer(){
     const cart = useContext(CartContext);
     const [preload, setPreload] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(cart.preview){
@@ -18,6 +20,11 @@ function ShoppingCartViewer(){
 
     function isEmpty(){
         return cart.items.length <= 0;
+    }
+
+    function openCart(){
+        cart.hidePreview();
+        navigate("cart");
     }
 
     function getItems(){
@@ -32,7 +39,7 @@ function ShoppingCartViewer(){
                     <h3>Subtotal</h3>
                     <h3>${cart.getTotalCost()}</h3>
                 </div>
-                <RedButton text="View Cart"/> 
+                <RedButton text="View Cart" onClick={openCart}/> 
             </div>
         </>
     }
