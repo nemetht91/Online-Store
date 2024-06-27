@@ -169,7 +169,12 @@
 .cartSummary{
     display: flex;
     justify-content: center;
-    gap: 40px
+    gap: 60px
+}
+
+.cartSummary h2{
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
 }
 
 .cartSummary .cart img{
@@ -182,21 +187,36 @@
 
 .cartSummary .cartItem{
     display: flex;
-    width: 600px;
     gap: 20px;
-    padding-bottom: 20px;
 }
 
 .cartSummary .cartItem .text{
     display: flex;
     justify-content: space-between;
-    width: 100%;
     align-items: flex-start;
+    width: 300px;
+}
+
+.cartSummary .items .detail{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 600px;
+    padding: 20px 0px;
+}
+
+.cartSummary .items .detail i{
+    padding: 2.5px 0px;
+}
+
+.cartSummary .items .detail i:hover{
+    cursor: pointer;
 }
 
 .cartSummary .cartItem .quantity{
     height: fit-content;
     margin-top: 0px;
+    font-size: 12px;
 }
 
 .cartSummary .cartItem .price{
@@ -207,4 +227,29 @@
 
 .cartSummary .cartItem .old-price{
     color: gray;
+}
+
+.cartSummary .order{
+    width: 250px;
+}
+
+.cartSummary .order h2{
+    margin-bottom: 30px;
+}
+
+.cartSummary .order .flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.cartSummary .order .delivery{
+    text-decoration: underline;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+.cartSummary button{
+    width: 100%;
+    margin: 20px 0px;
 }
