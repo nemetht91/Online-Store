@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import products from "../data/products";
-
+import { useLocation } from "react-router-dom";
 
 export const CartContext = createContext({
     items: [],
@@ -21,6 +20,7 @@ export function CartProvider({children}){
     const [cartProduct, setCartProduct] = useState([]);
     const [preview, setPreview] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+    const location = useLocation();
 
     // [{item: {}, quantity: 2}]
 
@@ -70,6 +70,9 @@ export function CartProvider({children}){
                 ? {...product, quantity: product.quantity + newItem.quantity} : product
             )
         )
+        if(location.pathname === "/cart"){
+            return;
+        }
         setPreview(true);
     }
 
