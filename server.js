@@ -1,7 +1,7 @@
 import express from "express"
 import bodyParser from "body-parser";
 import cors from "cors"
-import {getProducts, getDeals, getProduct} from "./client/data/products.js";
+import {getProducts, getDeals, getProduct, searchProduct} from "./client/data/products.js";
 import categories from "./client/data/categories.js";
 import { getPopularCategories } from "./client/data/categories.js";
 import { getCategoryByName } from "./client/data/categories.js";
@@ -67,6 +67,17 @@ app.get('/api/category', (req, res) => {
         res.json({})
     }else{
         res.json(category);
+    }
+})
+
+app.get('/api/search', (req,res) => {
+    const searchText = req.query.searchText;
+
+    const products = searchProduct(searchText);
+    if(products == undefined){
+        res.json({})
+    }else{
+        res.json(products);
     }
 })
 

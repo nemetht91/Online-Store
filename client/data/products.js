@@ -362,6 +362,25 @@ const products =[
 },
 ];
 
+export function searchProduct(keyWord){
+    return products.filter((product) => {
+        return isMatch(product.name, keyWord);
+    })
+}
+
+function isMatch(productName, keyWord){
+    let words = productName.split(" ");
+    let result = false;
+    words.forEach(word => {
+        
+        let strippedWord = word.substring(0, keyWord.length).toLowerCase();
+        if(strippedWord === keyWord.toLowerCase()){
+            result = true;
+        }
+    });
+    return result;
+}
+
 export function getProducts(categoryId){
     return products.filter((product) => {
         return product.categoryId == categoryId

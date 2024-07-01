@@ -50,6 +50,12 @@ class DataFetcher{
         }));
     }
 
+    async searchProducts(searchText){
+        return await this.fetchData('search?'+new URLSearchParams({
+            searchText: searchText
+        }));
+    }
+
 }
 
 const dataFetcher = new DataFetcher();

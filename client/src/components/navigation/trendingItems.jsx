@@ -4,7 +4,7 @@ import './navbar.css'
 import TrendingItem from './trendingItem';
 import dataFetcher from '../../../dataFetch';
 
-function TrendingItems(){
+function TrendingItems(props){
   
     const [trendingItems, setTrendingItems] = useState([]);
 
@@ -14,13 +14,16 @@ function TrendingItems(){
 
             setTrendingItems(data);
         }
-        fetchTrendingItems();
+        //fetchTrendingItems();
+        setTrendingItems(props.items)
     }, []);
+
+
 
     return <div className='trending-items'>
         <h2>Trending Products</h2>
         <div>
-            {trendingItems.map((data) => {
+            {props.items?.map((data) => {
                 return <TrendingItem 
                 key={data.id}
                 imgUrl={data.img}
