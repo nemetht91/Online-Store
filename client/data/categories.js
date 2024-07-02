@@ -21,7 +21,7 @@ const categories = [
 export const popularCategories = [1, 6, 13, 5, 3, 11, 15, 8];
 
 export function getCategoriy(id){
-    return categories.find((category) => {return category.id === id})
+    return categories.find((category) => {return category.id == id})
 }
 
 export function getCategoryByName(name){

@@ -44,9 +44,15 @@ class DataFetcher{
         }));
     }
 
-    async getCategory(categoryName){
+    async getCategoryByName(categoryName){
         return await this.fetchData('category?'+new URLSearchParams({
             categoryName: categoryName.replace(/(\r\n|\n|\r)/gm, "")
+        }));
+    }
+
+    async getCategoryById(categoryId){
+        return await this.fetchData('category?'+new URLSearchParams({
+            categoryId: categoryId
         }));
     }
 

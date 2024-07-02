@@ -381,6 +381,12 @@ function isMatch(productName, keyWord){
     return result;
 }
 
+export function getTrending(){
+    return products.filter((product, index) => {
+        return index < 5;
+    })
+}
+
 export function getProducts(categoryId){
     return products.filter((product) => {
         return product.categoryId == categoryId

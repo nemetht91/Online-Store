@@ -24,7 +24,7 @@ function Products(){
                 setCategory({name: params.category})
             }
             else{
-                var data = await dataFetcher.getCategory(params.category);
+                var data = await dataFetcher.getCategoryByName(params.category);
                 setCategory(data);
             }
             setLoaded(true);

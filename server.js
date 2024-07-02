@@ -1,10 +1,10 @@
 import express from "express"
 import bodyParser from "body-parser";
 import cors from "cors"
-import {getProducts, getDeals, getProduct, searchProduct} from "./client/data/products.js";
+import {getProducts, getDeals, getProduct, searchProduct, getTrending} from "./client/data/products.js";
 import categories from "./client/data/categories.js";
 import { getPopularCategories } from "./client/data/categories.js";
-import { getCategoryByName } from "./client/data/categories.js";
+import { getCategoryByName, getCategoriy } from "./client/data/categories.js";
 
 const app = express();
 
@@ -25,13 +25,8 @@ app.get('/api/customers', (req, res) => {
 });
 
 app.get('/api/trending', (req, res) => {
-    const trending = [];
-    for(var i =0; i <= products.length; i++){
-        if(i >= 5){
-            break;
-        }
-        trending.push(products[i]);
-    }
+    const trending = getTrending();
+  
     res.json(trending);
 })
 
@@ -61,8 +56,15 @@ app.get('/api/product', (req, res) => {
 
 app.get('/api/category', (req, res) => {
     const categoryName = req.query.categoryName;
+    const categoryId = req.query.categoryId;
+    let category = undefined;
+    console.log(categoryName);
+    if(categoryName == undefined){
+         category = getCategoriy(categoryId);
 
-    const category = getCategoryByName(categoryName);
+    }else{
+         category = getCategoryByName(categoryName);
+    }
     if(category == undefined){
         res.json({})
     }else{
