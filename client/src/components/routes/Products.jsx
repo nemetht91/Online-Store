@@ -20,7 +20,7 @@ function Products(){
 
         const fetchData = async () => {
             var data;
-            if(params.category == "Deals"){
+            if(params.category == "Deals" || params.category == "Most Popular"){
                 setCategory({name: params.category})
             }
             else{
@@ -37,7 +37,7 @@ function Products(){
     useEffect(() => {
         const fetchProducts = async () => {
             var data = undefined;
-            if(params.category == "Deals"){
+            if(params.category == "Deals" || params.category == "Most Popular"){
                 data = await dataFetcher.getDeals();
             }else{
                 data = await dataFetcher.getProducts(category.id);

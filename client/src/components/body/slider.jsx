@@ -15,7 +15,7 @@ function Slider(props){
             centeredSlides= {true}
             >
                 {props.products.map((product, index) => {
-                    return <swiper-slide key={index}><Product detail={product}/></swiper-slide>;
+                    return <swiper-slide key={index}><Product category={props.category} detail={product}/></swiper-slide>;
                 })}
 
             </swiper-container>

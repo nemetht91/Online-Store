@@ -37,7 +37,7 @@ const stucture = [
             {name: "Babies", id: 17}
         ]},
     {
-        main: {name: "Most Popular", url: "popular"}, 
+        main: {name: "Most Popular", url: "products"}, 
         sub:[]
     },
     {

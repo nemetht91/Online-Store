@@ -39,7 +39,7 @@ function Home(){
                 <div className="deals"> 
                     <div>
                         <h2 className="title">Best Deals</h2>
-                        <Slider products={products}/>
+                        <Slider category={"Deals"} products={products}/>
                     </div>
                     <RedButton text="Shop Best Deals"/>
                 </div>
@@ -52,7 +52,7 @@ function Home(){
                 <div className="deals">
                     <div>
                         <h2 className="title">Most Popular</h2>
-                        <Slider products={products}/>
+                        <Slider category={"Most Popular"} products={products}/>
                     </div>
                     <RedButton text="Shop Most Popular"/>
                 </div>
