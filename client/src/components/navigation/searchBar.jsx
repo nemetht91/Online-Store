@@ -10,9 +10,9 @@ function SearchBar(){
     const [products, setProducts] = useState();
 
 
-    function handleOnFocus(){
+    function handleOnFocus(event){
         if(!isActive){
-            fetchTrendingItems();
+            handleChange(event);
         }
         setIsActive(true);
     }
@@ -27,7 +27,6 @@ function SearchBar(){
         setTrendingItems(true);
     }
 
- 
 
 
     function handleChange(event){
