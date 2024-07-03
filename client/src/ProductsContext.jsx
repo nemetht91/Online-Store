@@ -15,6 +15,7 @@ export function ProductProvider({children}){
 
   
     function updateProducts(data, category){
+            console.log(data);
             setProducts(data);
             setCategory(category);
             localStorage.setItem("products", JSON.stringify(data));

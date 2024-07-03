@@ -63,6 +63,10 @@ function ProductInfo(){
         
     }, [params]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [product.name])
+
     return <div className="page productInfo-page">
     <ProductLayout currentPruduct={product}/>
         <div className="productInfo">
