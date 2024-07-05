@@ -58,7 +58,6 @@ app.get('/api/category', (req, res) => {
     const categoryName = req.query.categoryName;
     const categoryId = req.query.categoryId;
     let category = undefined;
-    console.log(categoryName);
     if(categoryName == undefined){
          category = getCategoriy(categoryId);
 

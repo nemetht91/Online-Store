@@ -3,11 +3,14 @@ import React from "react";
 import './navbar.css'
 import TrendingItems from './trendingItems';
 import dataFetcher from '../../../dataFetch';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar(){
     const [trendingItems, setTrendingItems] = useState(true);
     const [isActive, setIsActive] = useState(false);
     const [products, setProducts] = useState();
+    const [text, setText] = useState("");
+    const navigate = useNavigate();
 
 
     function handleOnFocus(event){
@@ -41,15 +44,21 @@ function SearchBar(){
             fetchTrendingItems();
             return;
         }
+        setText(event.target.value);
         searchProducts();
     }
 
+    function submit(event){
+        event.preventDefault();
+        navigate(`/search`,{state:{text:text}});
+    }
+
     return (
-        <form action="/search" method="POST">
+        <form onSubmit={submit}>
             <div  className="form-group fg--search">
                 <div>
-                    <input onBlur={handleOnBlur} onFocus={handleOnFocus}  onChange={handleChange} type="text" className="input" placeholder="Search a product e.g. milk" name="movieTitle"/>
-                    <button className={isActive? "button-active" : ""} type="submit"><i className="fa fa-search"></i></button>
+                    <input onBlur={handleOnBlur} onFocus={handleOnFocus}  onChange={handleChange} type="text" className="input" placeholder="Search a product e.g. milk" name="search" value={text}/>
+                    <button onClick={submit} className={isActive? "button-active" : ""} type="submit"><i className="fa fa-search"></i></button>
                 </div>
                 {isActive && <TrendingItems title={trendingItems?"Trending Products":"Products"} items={products} />}
             </div>

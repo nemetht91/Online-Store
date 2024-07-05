@@ -13,6 +13,7 @@ import NotFound from './components/routes/NotFound';
 import ProductInfo from './components/routes/ProductInfo';
 import { ProductProvider } from './ProductsContext';
 import ShoppingCartSummary from './components/shoppingCart/shoppingcartSummary';
+import SearchPage from './components/routes/SearchPage';
 
 register();
 
@@ -34,6 +35,7 @@ function App() {
                 </Route>
               </Route>
               <Route path='/cart' element={<ShoppingCartSummary/>}/>
+              <Route path='/search' element={<SearchPage/>}/>
               <Route path='/pagenotfound' element={<NotFound />}/>
           </Routes>
         </ProductProvider>
