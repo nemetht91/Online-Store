@@ -41,6 +41,7 @@ function SearchBar(){
         }
 
         if(event.target.value === ""){
+            setText("");
             fetchTrendingItems();
             return;
         }
