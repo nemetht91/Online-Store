@@ -8,21 +8,44 @@ import { useParams } from "react-router-dom";
 
 
 function SearchPage(){
-    const products = useContext(ProductsContext);
     const location = useLocation();
     const navigate = useNavigate();
     const params = useParams()
 
+    const [products, setProducts] = useState([])
     const [searchedText, setSearchedText] = useState("");
-    const [categoryFilters, setCategoryFilters] = useState([]);
+    const [categoryFilters, setCategoryFilters] = useState({});
 
     useEffect(() => {
+        updateText();
+    }, [location.state]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const data = await dataFetcher.searchProducts(searchedText);
+            setProducts(data);
+        }
+        console.log(searchedText);
+        fetchProducts();
+    }, [searchedText])
+
+    function updateText(){
         if(location.state == undefined){
             setSearchedText("");
         }else{
             setSearchedText(location.state.text);
         }
-    }, [location.state])
+    }
+
+    function addCategoryFilter(filterName, value){
+
+        setCategoryFilters((preVaule) => {
+            return {
+                ...preVaule,
+                [filterName]: value
+            }
+        })
+    }
 
     return <div className="search-page page">
         <h1>Search Results</h1>
@@ -30,7 +53,9 @@ function SearchPage(){
             <p>{searchedText}</p>
         </div>
         <div className="content">
-
+            {products.map((product) => {
+                return <Product key={product.id} detail={product} />
+            })}
         </div>
 
     </div>
