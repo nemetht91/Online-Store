@@ -17,17 +17,14 @@ function SearchPage(){
     const [categoryFilters, setCategoryFilters] = useState({});
 
     useEffect(() => {
-        updateText();
-    }, [location.state]);
-
-    useEffect(() => {
         const fetchProducts = async () => {
-            const data = await dataFetcher.searchProducts(searchedText);
+            const data = await dataFetcher.searchProducts(location.state.text);
             setProducts(data);
         }
-        console.log(searchedText);
+        updateText();
         fetchProducts();
-    }, [searchedText])
+    }, [location.state]);
+
 
     function updateText(){
         if(location.state == undefined){
