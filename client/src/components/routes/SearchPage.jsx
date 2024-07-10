@@ -14,16 +14,28 @@ function SearchPage(){
 
     const [products, setProducts] = useState([])
     const [searchedText, setSearchedText] = useState("");
-    const [categoryFilters, setCategoryFilters] = useState({});
+    const [categoryFilters, setCategoryFilters] = useState([]);
+    const [categories, setCategorys] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
             const data = await dataFetcher.searchProducts(location.state.text);
             setProducts(data);
+            updateCategories(data);
         }
         updateText();
         fetchProducts();
     }, [location.state]);
+
+    function updateCategories(data){
+        let tempCategories = [];
+        data.forEach((product) => {
+            if(!(tempCategories.includes(product.categoryId))){
+                tempCategories.push(product.categoryId);
+            }
+        })
+        setCategorys(tempCategories);
+    }
 
 
     function updateText(){
@@ -34,15 +46,37 @@ function SearchPage(){
         }
     }
 
-    function addCategoryFilter(filterName, value){
-
-        setCategoryFilters((preVaule) => {
-            return {
-                ...preVaule,
-                [filterName]: value
-            }
+    function addCategoryFilter(categoryId){
+        if(categoryFilters.includes(categoryId)){
+            return;
+        }
+        setCategoryFilters((preValue) => {
+            return [
+                ...preValue,
+                categoryId
+            ]
         })
     }
+
+    function removeCategoryFilter(categoryId){
+        if(!categoryFilters.includes(categoryId)){
+            return;
+        }
+        setCategoryFilters((preValue) => {
+            return preValue.filter((value) => {
+                return value != categoryId;
+            })
+        })
+    }
+
+    function isFiltered(categoryId){
+        if(categoryFilters.length == 0){
+            return true;
+        }
+        return categoryFilters.includes(categoryId);
+    }
+
+
 
     return <div className="search-page page">
         <h1>Search Results</h1>
@@ -50,14 +84,58 @@ function SearchPage(){
             <p>{searchedText}</p>
         </div>
         <div className="content">
-            {products.map((product) => {
-                return <Product key={product.id} detail={product} />
-            })}
+            <div className="products">
+                {products.map((product) => {
+                    return isFiltered(product.categoryId) && <Product key={product.id} detail={product} />
+                })}    
+            </div>
+          <div className="filters">
+
+                {categories.map((categoryId) => {
+                    return <CategoryFilter 
+                    key={categoryId} 
+                    categoryId={categoryId}
+                    addFilter={addCategoryFilter}
+                    removeFilter={removeCategoryFilter}/>
+                })}
+          </div>
+        
         </div>
 
     </div>
 
 
+}
+
+function CategoryFilter(props){
+
+    const [category, setCategory] = useState({});
+    const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        const fetchCategory = async () => {
+            const data = await dataFetcher.getCategoryById(props.categoryId);
+            setCategory(data);
+        }
+        fetchCategory();
+    }, [])
+
+    function handleClick(){
+        if(isActive){
+            props.removeFilter(category.id);
+            setIsActive(false);
+        }else{
+            props.addFilter(category.id);
+            setIsActive(true);
+        }
+    }
+
+    return <div className="categoryFilter" onClick={handleClick}>
+        <div className="tick">
+            {isActive && <i className="fa-solid fa-check"></i>}
+        </div>
+        <p>{category["name"]}</p>
+    </div>
 }
 
 export default SearchPage;
